@@ -15,7 +15,8 @@ The design of the site is very simple and muted, it is a tool that the user can 
 
 ## Wireframes
 ### Client Management Page
-<img src="/assets/wireframe_clients.png" style="margin: 0;">
+The below image gives a view of the elements that the clients page will have on it and also gives an outline of what each of the different elements do or features that are required to be built in order for them to work properly (these are the grey boxes and grey arrows). 
+<img src="assets/images/wireframe_clients.png" style="margin: 0;">
 
 ## Features
 ### Existing Features
