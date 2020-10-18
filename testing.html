@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap CSS link -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    
+    <title>Home</title>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="index.html">organise me</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav ml-auto">
+                <a class="nav-item nav-link" href="index.html">Home</a>
+                <a class="nav-item nav-link " href="clients.html">Clients <span class="sr-only">(current)</span></a>
+                <a class="nav-item nav-link" href="dashboard.html">Dashboard</a>
+                <a class="nav-item nav-link active" href="testing.html">Testing</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- check to see if there are any clients in localstorage  -->
+    <!-- if there are no clients display the add clients button and a message -->
+    <div>
+        <p>You don't currently have any clients saved, click on the Add New Client button below to get started!</p>
+    </div>
+
+    <!-- if there are clients display the add clients button and the list of current clients -->
+    <!-- grouping by client group, fetch group names and loop these divs for as many client groups there are -->
+    <!-- order the groupings alphabetically with the All Group always at the top/bottom.... maybe let the user decide?? -->
+    <div class="container client-group-display"> client group 1
+        <!-- fetch all clients within this group and loop through to create divs for each client -->
+        <!-- order the clients alphabetically-->
+        <div class="container client-info"> 
+            <p>client info 1</p>
+            <p>client info 2</p>
+        </div>
+    </div>
+    
+    
+    <!-- This button should be available all the time, even if there are some clients -->
+    <button class="btn" type="button" data-toggle="modal" data-target="#addClientModal">+ Add New Client </button>
+
+
+    
+<!-- https://www.youtube.com/watch?v=1s4s_lU83pM -->
+
+
+
+
+
+
+    <!-- Modal -->
+    <div id="addClientModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+    
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+               
+                <h4 class="modal-title">Add a new client</h4>
+            </div>
+           
+            <div class="modal-body">
+                <form id="client_form">
+                    <!-- client name -->
+                    <input type="text" id="client-name" placeholder="enter client name" required><br>
+                    <!-- Billing rate per hour -->
+                    <input type="number" id="billing-hr-rate"  placeholder="enter billing rate" required><br>
+                    <!-- Rounding up to value -->
+                    <p>For billing purposes, round time up to the nearest:</p>
+                    <input type="radio" id="1 minute" name="billing-round-up" value="1 minute" required>
+                    <label for="1 minute">1 minute</label><br>
+                    <input type="radio" id="15 minutes" name="billing-round-up" value="15 minutes" required>
+                    <label for="15 minutes">15 minutes</label><br>
+                    <input type="radio" id="30 minutes" name="billing-round-up" value="30 minutes" required>
+                    <label for="30 minute">30 minutes</label><br>
+                    <input type="radio" id="1 hour" name="billing-round-up" value="1 hour" required>
+                    <label for="1 hour">1 hour</label><br>
+                    <!-- Client color choice -->
+                    <label for="client-color">Color: </label>
+                    <input type="color" id="client-color"  placeholder="choose a color" required><br>
+                    <!-- Client group -->
+                    <input type="text" id="client-group" class=""  placeholder="choose client group"><br>
+
+
+                    <input id= "addClientBtn"  type="submit" class="btn btn-default">
+                </form>
+            </div>
+          
+        </div>
+    
+        </div>
+    </div>
+
+
+
+
+
+
+    <!-- Bootstrap JS scripts -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    
+
+     <script type="text/javascript">
+       
+
+        let clients = [];
+         const addClientData = (evt) => { 
+            evt.preventDefault();
+            let client = {
+                client_name: document.getElementById('client-name').value,
+                billing_hr_rate: document.getElementById('billing-hr-rate').value,
+                billing_round_up: document.getElementsByName('billing-round-up').value,
+                client_color: document.getElementById('client-color').value,
+                client_group: null   
+            }
+            clients.push(client);
+            document.forms[0].reset()
+
+            console.warn('added', {clients})
+            
+            window.localStorage.setItem("client_data", JSON.stringify(clients))
+
+        }
+        
+            document.getElementById('client_form').addEventListener('submit', function(evt) {
+                console.log(this)
+            })
+            document.getElementById('addClientBtn').addEventListener('click', addClientData)
+            
+
+    </script> 
+
+
+</body>
+</html>
