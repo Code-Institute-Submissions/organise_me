@@ -32,7 +32,7 @@
     </div>
 
     <!-- This button should be available all the time, even if there are some clients -->
-    <button class="" type="button">+ Add New Client </button>
+    <button class="btn" type="button" data-toggle="modal" data-target="#addClientModal">+ Add New Client </button>
 
     <!-- if there are clients display the add clients button and the list of current clients -->
     <!-- grouping by client group, fetch group names and loop these divs for as many client groups there are -->
@@ -48,10 +48,63 @@
     
     
     <!-- This button should be available all the time, even if there are some clients -->
-    <button class="" type="button">+ Add New Client </button>
+    <button class="btn" type="button" data-toggle="modal" data-target="#addClientModal">+ Add New Client </button>
 
 
     
+
+
+
+
+
+
+
+    <!-- Modal -->
+    <div id="addClientModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+    
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Add a new client</h4>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <!-- client name -->
+                    <input type="text" id="client-name" name="client-name" placeholder="enter client name"><br>
+                    <!-- Billing rate per hour -->
+                    <input type="text" id="billing-hr-rate" name="billing-hr-rate" placeholder="enter billing rate"><br>
+                    <!-- Rounding up to value -->
+                    <p>For billing purposes, round time up to the nearest:</p>
+                    <input type="radio" id="1 minute" name="billing-round-up" value="1 minute">
+                    <label for="1 minute">1 minute</label><br>
+                    <input type="radio" id="15 minutes" name="billing-round-up" value="15 minutes">
+                    <label for="15 minutes">15 minutes</label><br>
+                    <input type="radio" id="30 minutes" name="billing-round-up" value="30 minutes">
+                    <label for="30 minute">30 minutes</label><br>
+                    <input type="radio" id="1 hour" name="billing-round-up" value="1 hour">
+                    <label for="1 hour">1 hour</label>
+                    <!-- Client colour choice -->
+                    <!-- Client group -->
+
+
+
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    
+        </div>
+    </div>
+
+
+
+
+
 
     <!-- Bootstrap JS scripts -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
