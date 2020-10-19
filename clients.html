@@ -31,9 +31,6 @@
         <p>You don't currently have any clients saved, click on the Add New Client button below to get started!</p>
     </div>
 
-    <!-- This button should be available all the time, even if there are some clients -->
-    <button class="btn" type="button" data-toggle="modal" data-target="#addClientModal">+ Add New Client </button>
-
     <!-- if there are clients display the add clients button and the list of current clients -->
     <!-- grouping by client group, fetch group names and loop these divs for as many client groups there are -->
     <!-- order the groupings alphabetically with the All Group always at the top/bottom.... maybe let the user decide?? -->
@@ -52,54 +49,47 @@
 
 
     
+<!-- https://www.youtube.com/watch?v=1s4s_lU83pM -->
 
 
 
 
-
-
-
-    <!-- Modal -->
-    <div id="addClientModal" class="modal fade" role="dialog">
-        <div class="modal-dialog">
-    
-        <!-- Modal content-->
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Add a new client</h4>
-            </div>
-            <div class="modal-body">
-                <form>
-                    <!-- client name -->
-                    <input type="text" id="client-name" name="client-name" placeholder="enter client name"><br>
-                    <!-- Billing rate per hour -->
-                    <input type="text" id="billing-hr-rate" name="billing-hr-rate" placeholder="enter billing rate"><br>
-                    <!-- Rounding up to value -->
-                    <p>For billing purposes, round time up to the nearest:</p>
-                    <input type="radio" id="1 minute" name="billing-round-up" value="1 minute">
-                    <label for="1 minute">1 minute</label><br>
-                    <input type="radio" id="15 minutes" name="billing-round-up" value="15 minutes">
-                    <label for="15 minutes">15 minutes</label><br>
-                    <input type="radio" id="30 minutes" name="billing-round-up" value="30 minutes">
-                    <label for="30 minute">30 minutes</label><br>
-                    <input type="radio" id="1 hour" name="billing-round-up" value="1 hour">
-                    <label for="1 hour">1 hour</label>
-                    <!-- Client colour choice -->
-                    <!-- Client group -->
-
-
-
-
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            </div>
+ <!-- Modal -->
+ <div id="addClientModal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Add New Client</h5>
+          <button type="button" class="close" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
         </div>
-    
+        <div class="modal-body">
+          
+            <form id="new-client" action="">
+                <input name="name" type="text" class="form-control" placeholder="Enter client Name" required>
+                <input type="number" name="billingRate" class="form-control" placeholder="Billing Rate" required>
+                <select class="form-control" name="colour" required>
+                    <option value="#ffb3ba">Pink</option>
+                    <option value="#ffdfba">Orange</option>
+                    <option value="#ffffba">Yellow</option>
+                    <option value="#baffc9">Green</option>
+                    <option value="#bae1ff">Blue</option>
+                </select>
+
+                <input id="client-groups" autocomplete="off"  list="groups" name="group" type="text" class="form-control" placeholder="Client Groups" required>
+                <datalist id="groups"></datalist>
+
+            </form>
+
         </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-primary" form="new-client">Save changes</button>
+          <button type="button" class="btn btn-secondary" onclick="toggleModal()">Close</button>
+        </div>
+      </div>
     </div>
+  </div>
 
 
 
