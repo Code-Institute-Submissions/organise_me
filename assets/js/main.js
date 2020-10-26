@@ -1,5 +1,6 @@
+//CLIENTS PAGE
 
-//addNewClient Function: This function should be called whenever the user clicks the SAVE NEW CLIENT button on the new clients form
+//1. addNewClient Function: This function should be called whenever the user clicks the SAVE NEW CLIENT button on the new clients form
 function addNewClient(new_client) {
     //checking to see if a client exists already or not
     let client_exists = 0;
@@ -27,8 +28,7 @@ function addNewClient(new_client) {
 }      
 
 
-
-//adding clients
+//2. adding clients to HTML page
 function insertClientListAsHTML(parentElement) {
     let clients = JSON.parse(localStorage.getItem("Clients")) || [];
 
@@ -61,4 +61,34 @@ function insertClientListAsHTML(parentElement) {
     })
 }
 
+
+//DASHBOARD
+
+
+//1. addNewClientToDay Function: This function should be called whenever the user clicks the SAVE NEW CLIENT button on the new clients to day form
+function addClientToDay(current_day, new_client_to_day) {
+     //checking to see if a client exists already or not
+    let client_exists = 0;
+
+    let clientsPerDay =  JSON.parse(window.localStorage.getItem(current_day)) || []
+            
+    clientsPerDay.forEach(function(client) {
+        if  (new_client_to_day.name ===  client.name) {
+            client_exists += 1
+            // break
+        } 
+    });
+
+    //if a client does already exist, an error message should pop up saying that the client already exists and cannot be added
+    //user will need to add a different client
+
+    if (client_exists == 0) {
+        clientsPerDay.push(new_client_to_day);
+        localStorage.setItem(current_day, JSON.stringify(clientsPerDay));
+        location.reload()
+    } else {
+        console.log(new_client_to_day.name + " already exists, please choose a different client name")
+    }
+
+}
 
