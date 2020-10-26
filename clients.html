@@ -45,12 +45,26 @@
     
     
     <!-- This button should be available all the time, even if there are some clients -->
-    <!-- <button class="btn" type="button" data-toggle="modal" data-target="#addClientModal" onclick="toggleModal()>+ Add New Client </button> -->
+    <button class="btn" type="button" data-toggle="modal" data-target="#addClientModal">+ Add New Client </button>
 
 
+   <!-- Modal -->
+   <div id="addClientModal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Add New Client</h5>
+          <button type="button" class="close" aria-label="Close"  data-dismiss="modal">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+
+
+            <!-- form for including new client information  -->
             <form id="new-client" >
-                <input type="text"      name="name"     class="form-control" placeholder="Enter client Name" >
-                <input type="number"    name="ratingph" class="form-control" placeholder="Billing Rate" >
+                <input type="text"      name="name"     class="form-control" placeholder="Enter client Name" required >
+                <input type="number"    name="ratingph" class="form-control" placeholder="Billing Rate" required>
                 <select class="form-control" name="colour" required>
                     <option value="#ffb3ba">Pink</option>
                     <option value="#ffdfba">Orange</option>
@@ -60,9 +74,15 @@
                 </select>
                 <input type="text"      name="group"    class="form-control"  placeholder="Client Groups"  id="client-groups" autocomplete="off"  list="groups"    required>
                 <datalist id="groups"></datalist>
-                <button type="submit">Submit</button>
             </form>
 
+        </div>
+        <div class="modal-footer">
+            <button type="submit" form="new-client">Submit</button>
+        </div>
+    </div>
+    </div>
+    </div>
       
 
 
