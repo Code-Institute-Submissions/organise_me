@@ -92,3 +92,34 @@ function addClientToDay(current_day, new_client_to_day) {
 
 }
 
+
+//2. addClientEventListener Function: Creating an event listener for the new client to day form submit button
+//   This will take inputs from the form and check them in the addClientToDay function to make sure the client doesn't already exist
+//   If the client doesn't exist in that day, then it will add it to the data, otherwise not.
+function addClientEventListener() {
+    let form = document.getElementById('new-client-to-day');
+           
+
+    form.addEventListener('submit', (event) => {
+        event.preventDefault()
+        let data = new FormData(form)
+        let day_lookup = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+        let current_day = day_lookup[new Date().getDay()]
+        let clients = JSON.parse(localStorage.getItem("Clients")) || [];
+  
+        let client = clients.filter(client => client.name === data.get('name'))
+        if (client.length === 0) {
+          console.log('client not found')
+          return
+        } 
+  
+        let new_client_to_day = { "name": data.get('name'),
+                                  "group": client[0].group,
+                                  "seconds": 0 
+                                }
+      
+        addClientToDay(current_day, new_client_to_day)         
+  
+        form.reset()
+    })}
+  
