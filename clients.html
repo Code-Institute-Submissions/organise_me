@@ -25,23 +25,14 @@
         </div>
     </nav>
 
-    <!-- check to see if there are any clients in localstorage  -->
-    <!-- if there are no clients display the add clients button and a message -->
-    <div>
-        <p>You don't currently have any clients saved, click on the Add New Client button below to get started!</p>
+
+    <div id="Client_List">
+       <div>You don't have any clients saved at the moment, please click the button below to add a new client</div>
+
     </div>
 
-    <!-- if there are clients display the add clients button and the list of current clients -->
-    <!-- grouping by client group, fetch group names and loop these divs for as many client groups there are -->
-    <!-- order the groupings alphabetically with the All Group always at the top/bottom.... maybe let the user decide?? -->
-    <div class="container client-group-display"> client group 1
-        <!-- fetch all clients within this group and loop through to create divs for each client -->
-        <!-- order the clients alphabetically-->
-        <div class="container client-info"> 
-            <p>client info 1</p>
-            <p>client info 2</p>
-        </div>
-    </div>
+   
+
     
     
     <!-- This button should be available all the time, even if there are some clients -->
@@ -96,15 +87,19 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.20/lodash.min.js"></script>
     <script src="assets/js/main.js"></script>
 
 
 <script>
-            
+    
+    //bringing in 
+    let client_parent = document.getElementById('Client_List')
+    insertClientListAsHTML(client_parent)
            
-   let form = document.getElementById('new-client');
+    let form = document.getElementById('new-client');
          
-//creating event listener for submitting the new client form (new-client)
+    //creating event listener for submitting the new client form (new-client)
     form.addEventListener('submit', (event) => {
         event.preventDefault()
         let data = new FormData(form)
@@ -122,11 +117,6 @@
 
 
 
-
-
-
-
-          
 
             
 </script>
