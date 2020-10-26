@@ -28,7 +28,35 @@ function addNewClient(new_client) {
 }      
 
 
-//2. adding clients to HTML page
+
+//2. addNewClientEventListener Function: Creating an event listener for the new client form submit button
+//   This will take inputs from the form and check them in the addNewClient function to make sure the client doesn't already exist
+//   If the client doesn't exist in local Storage, then it will add it to the data, otherwise not.
+ 
+function addNewClientEventListener() {
+
+    let form = document.getElementById('new-client');
+            
+    //creating event listener for submitting the new client form (new-client)
+    form.addEventListener('submit', (event) => {
+        event.preventDefault()
+        let data = new FormData(form)
+        let new_client = {  "name": data.get('name'),
+                            "ratingph": data.get('ratingph'),
+                            "colour": data.get('colour'),
+                            "group": data.get('group')
+                        }
+    
+        addNewClient(new_client)         
+
+        console.log("The submit button has been clicked!")
+        form.reset()
+        
+    })
+}
+
+
+//3. adding clients to HTML page
 function insertClientListAsHTML(parentElement) {
     let clients = JSON.parse(localStorage.getItem("Clients")) || [];
 
@@ -62,7 +90,7 @@ function insertClientListAsHTML(parentElement) {
 }
 
 
-//DASHBOARD
+//HOME PAGE (INDEX)
 
 
 //1. addNewClientToDay Function: This function should be called whenever the user clicks the SAVE NEW CLIENT button on the new clients to day form

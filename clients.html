@@ -96,27 +96,10 @@
     //bringing in 
     let client_parent = document.getElementById('Client_List')
     insertClientListAsHTML(client_parent)
+    addNewClientEventListener()
+
            
-    let form = document.getElementById('new-client');
-         
-    //creating event listener for submitting the new client form (new-client)
-    form.addEventListener('submit', (event) => {
-        event.preventDefault()
-        let data = new FormData(form)
-        let new_client = {  "name": data.get('name'),
-                            "ratingph": data.get('ratingph'),
-                            "colour": data.get('colour'),
-                            "group": data.get('group')
-                        }
-       
-        addNewClient(new_client)         
-
-        console.log("The submit button has been clicked!")
-        form.reset()
-    });
-
-
-
+  
 
             
 </script>
