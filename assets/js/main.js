@@ -69,14 +69,14 @@ function insertClientListAsHTML(parentElement) {
     Object.keys(groups).forEach(group => {
 
         let element = document.createElement('template')
-        let html = `<div class="container">
-                        <div class="row justify-content-center">
+        let html = `<div class="container-fluid col-6">
+                         <div class="row">
                             <div class="col">
                                 <h2>${group}</h2>`
 
         Array.from(groups[group]).forEach(client => {
 
-            html += `<div class="d-flex flex-row justify-content-between" style="background : ${client.colour}">
+            html += `<div class="col-xs-6" style="background : ${client.colour}">
                     <div class="p-2"><h4>${client.name}</h4> 
                     €${client.ratingph} p/h</div>
                     </div>`
@@ -151,3 +151,41 @@ function addClientEventListener() {
         form.reset()
     })}
   
+
+//3. adding clients from localstorage to Index.HTML page by day
+
+// function to display the second recorded as time in HH:MM:SS format
+function displaySecondsAsTime(seconds) {
+    //https://stackoverflow.com/questions/1322732/convert-seconds-to-hh-mm-ss-with-javascript
+    return new Date(seconds * 1000).toISOString().substr(11, 8)
+}
+
+function insertClientToDayAsHTML() {
+    let day_lookup = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+    day_lookup.forEach(day => {
+        console.log(day)
+
+        let clients_per_day = JSON.parse(localStorage.getItem(day)) || [];
+
+        let groups = _.groupBy(clients_per_day, 'group')
+        Object.keys(groups).forEach(group => {
+            let group_element = document.createElement('div')
+            
+            Array.from(groups[group]).forEach(client => {
+                let client_element = document.createElement('div')
+                client_element.className = 'client'
+                client_element.onclick = function(){
+// TO UPDATE: starting the timer for the client that is clicked will happen in here                    
+                    alert(client.name)
+
+                    }
+                    client_element.innerHTML = `${client.name} ${displaySecondsAsTime(client.seconds)}`
+                    group_element.appendChild(client_element)
+            
+            })
+            document.getElementById(day).appendChild(group_element)
+        })
+        })
+}
+
+
