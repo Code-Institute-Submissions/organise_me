@@ -167,9 +167,10 @@ function displaySecondsAsTime(seconds) {
 }
 
 function insertClientToDayAsHTML() {
+
     let day_lookup = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
     day_lookup.forEach(day => {
-        console.log(day)
+       
 
         let clients_per_day = JSON.parse(localStorage.getItem(day)) || [];
 
@@ -181,7 +182,7 @@ function insertClientToDayAsHTML() {
                 let client_element = document.createElement('div')
                 client_element.className = 'client'
                 client_element.onclick = function(){
-// TO UPDATE: starting the timer for the client that is clicked will happen in here                    
+                // TO UPDATE: starting the timer for the client that is clicked will happen in here                    
                     alert(client.name)
 
                     }
@@ -195,34 +196,28 @@ function insertClientToDayAsHTML() {
 }
 
 
-//4. Populating options list for clients that have not already been selected for today's date 
+//4. Get current day as string
+function getCurrentDay() {
+    let day_lookup = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+    return day_lookup[new Date().getDay()]
+}
+
+
+
+//5. Populating options list for clients that have not already been selected for today's date 
 function insertAvailableClientListAsHTML(parentElement) {
     let clients = JSON.parse(localStorage.getItem("Clients")) || [];
+    let clientsInDay = (JSON.parse(localStorage.getItem(getCurrentDay())) || []).map(x => x.name)
+    let allClients = (clients.map(client => client.name)).filter(x => clientsInDay.indexOf(x) === -1)
 
     if (clients.length === 0) {
         return
     }
-    parentElement.innerHTML = ""
 
-    Object.keys(clients).forEach(group => {
+    parentElement.innerHTML = "<option selected disabled>Select a Client</option>"
 
-        let element = document.createElement('template')
-        let html = `<div class="container">
-                         <div class="row">
-                                <h2>${group}</h2>`
-
-        Array.from(groups[group]).forEach(client => {
-
-            html += `</div><div class="col">
-                    <div class="col" style="background : ${client.colour}">
-                    <div class="col"><h4>${client.name}</h4> 
-                                        €${client.ratingph} p/h</div>
-                    </div>`
-                })
-            html += `</div></div></div>`
-        
-        element.innerHTML = html.trim()
-        element = element.content.firstChild
-        parentElement.appendChild(element)
+    allClients.forEach(client => {
+        parentElement.innerHTML += `<option value="${client}" >${client}</option>` 
     })
+    
 }
