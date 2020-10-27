@@ -8,7 +8,7 @@ function addNewClient(new_client) {
     let clients = JSON.parse(localStorage.getItem("Clients")) || [];
             
     clients.forEach(function(client) {
-        if  (new_client.name ==  client.name) {
+        if  (new_client.name.toLowerCase() ===  client.name.toLowerCase()) {
             client_exists += 1
             // break
         } 
@@ -44,7 +44,7 @@ function addNewClientEventListener() {
         let new_client = {  "name": data.get('name'),
                             "ratingph": data.get('ratingph'),
                             "colour": data.get('colour'),
-                            "group": data.get('group')
+                            "group": data.get('group').toLowerCase()
                         }
     
         addNewClient(new_client)         
@@ -69,19 +69,25 @@ function insertClientListAsHTML(parentElement) {
     Object.keys(groups).forEach(group => {
 
         let element = document.createElement('template')
-        let html = `<div class="container-fluid col-6">
-                         <div class="row">
-                            <div class="col">
-                                <h2>${group}</h2>`
+        let html = `<div class="container-fluid">
+                        
+                                <h2 class="text-capitalize">${group}</h2>
+                                <div class="d-flex flex-row flex-wrap">
+                                `
 
         Array.from(groups[group]).forEach(client => {
 
-            html += `<div class="col-xs-6" style="background : ${client.colour}">
-                    <div class="p-2"><h4>${client.name}</h4> 
-                    €${client.ratingph} p/h</div>
-                    </div>`
+            html += `
+                    <div class="p-2 ml-2 col-sm-4 col-md-2 mb-2"  style="background : ${client.colour}">
+
+                        <h4>${client.name}</h4> 
+                        <div>€${client.ratingph} p/h</div>
+                    </div>
+                    `
                 })
-            html += `</div></div></div>`
+            html += ` </div>
+                    </div>
+                `
         
         element.innerHTML = html.trim()
         element = element.content.firstChild
@@ -189,3 +195,34 @@ function insertClientToDayAsHTML() {
 }
 
 
+//4. Populating options list for clients that have not already been selected for today's date 
+function insertAvailableClientListAsHTML(parentElement) {
+    let clients = JSON.parse(localStorage.getItem("Clients")) || [];
+
+    if (clients.length === 0) {
+        return
+    }
+    parentElement.innerHTML = ""
+
+    Object.keys(clients).forEach(group => {
+
+        let element = document.createElement('template')
+        let html = `<div class="container">
+                         <div class="row">
+                                <h2>${group}</h2>`
+
+        Array.from(groups[group]).forEach(client => {
+
+            html += `</div><div class="col">
+                    <div class="col" style="background : ${client.colour}">
+                    <div class="col"><h4>${client.name}</h4> 
+                                        €${client.ratingph} p/h</div>
+                    </div>`
+                })
+            html += `</div></div></div>`
+        
+        element.innerHTML = html.trim()
+        element = element.content.firstChild
+        parentElement.appendChild(element)
+    })
+}
