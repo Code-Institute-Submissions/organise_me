@@ -5,7 +5,7 @@
 
 body {
     /* background-image: url("/assets/images/ryan-stone-U3cctUBucn0-unsplash.jpg"); */
-    background-image: url("/assets/images/jj-ying-7JX0-bfiuxQ-unsplash.jpg");
+    background-image: url("/assets/images/ryan-stone-U3cctUBucn0-unsplash.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     font-family: 'Nunito', sans-serif;
@@ -15,7 +15,7 @@ body {
 .container {
     background-color: rgba(1, 1, 1, 0.5);
 }
-
+    
 .nav-item {
     font-size: max(1vw, 16px);
 }
@@ -63,7 +63,7 @@ hr {
 }
 
 .active-timer {
-    box-shadow: 0 0px 10px 2px rgba(128, 95, 236, 0.5);   
+    box-shadow: 0 0px 10px 2px rgba(202, 95, 23, 0.9);   
     border: solid 0.8px rgba(128, 95, 236, 0.5);
     border-radius: 10px ;
     width: 80%;
