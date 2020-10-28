@@ -1,0 +1,84 @@
+
+* {
+    margin: 0;
+}
+
+body {
+    /* background-image: url("/assets/images/ryan-stone-U3cctUBucn0-unsplash.jpg"); */
+    background-image: url("/assets/images/jj-ying-7JX0-bfiuxQ-unsplash.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    font-family: 'Nunito', sans-serif;
+    font-size: 12px;
+}
+
+.container {
+    background-color: rgba(1, 1, 1, 0.5);
+}
+
+.nav-item {
+    font-size: max(1vw, 16px);
+}
+
+/* TIMER PAGE */
+.day {
+    border: 3px solid rgba(100, 1, 1, 0);
+    border-radius: 30px ;
+    margin: 20px;
+    padding: 10px;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 0px 20px 2px rgba(255, 255, 255, 0.7);   
+
+}
+
+/* https://www.youtube.com/watch?v=U9VF-4euyRo */
+.day_card {
+    font-family: 'Raleway', sans-serif;
+    font-size: max(2vw, 25px);
+    color:rgb(128, 1, 128);
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.group_card {
+    font-family: 'Nunito', sans-serif;
+    text-transform: capitalize;
+    font-size: max(1.5vw, 20px);
+    font-weight: 400;
+    margin-top: 10px;
+}
+
+hr {
+    width: 30%;
+    margin: auto;
+    padding-bottom: 4px ;
+    border-top: 1px solid rgba(128, 1, 128, 0.4);
+}
+
+.client-time-card {
+    text-transform: capitalize;
+    font-size: max(1vw, 16px);
+    color: rgb(100, 100, 100);
+}
+
+.active-timer {
+    box-shadow: 0 0px 10px 2px rgba(128, 95, 236, 0.5);   
+    border: solid 0.8px rgba(128, 95, 236, 0.5);
+    border-radius: 10px ;
+    width: 80%;
+    margin: auto;
+  }
+
+/* CLIENTS PAGE */
+.client_card {
+    border: grey solid 2px;
+}
+
+.client_name{
+    font-size: small;
+}
+
+.client_rating {
+    border: grey solid 2px;
+}
