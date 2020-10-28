@@ -5,13 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap CSS link -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;1,400&family=Raleway:wght@300;400&family=Staatliches&display=swap" rel="stylesheet">
     <title>Home</title>
 </head>
 
+
+
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="logo navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="index.html">organise me</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -27,23 +30,30 @@
       </nav>
 
 
-    <div id='Monday' class="card">
-      <h2>Monday</h2>
-      <div>Group Financial</div>
-      <div>AIB     14:04:22</div>
-      <button class="btn" type="button" data-toggle="modal" data-target="#addClientModal">+ Add Client </button>
+      <div id="dayClientList" class="d-flex flex-row flex-wrap justify-content-center container">
+        <!-- <div>You don't have any clients time tracked at the moment, please choose a client from the dropdown list
+          below to add a new client to today</div> -->
+ 
+          <div id="Monday"    class="col-md-3 col-sm-4 day"></div>
+          <div id="Tuesday"   class="col-md-3 col-sm-4 day"></div>
+          <div id="Wednesday" class="col-md-3 col-sm-4 day"></div>
+          <div id="Thursday"  class="col-md-3 col-sm-4 day"></div>
+          <div id="Friday"    class="col-md-2 col-sm-4 day"></div>
+          <div id="Saturday"  class="col-md-2 col-sm-4 day"></div>
+          <div id="Sunday"    class="col-md-2 col-sm-4 day"></div>
+     </div>
 
-    </div>
 
-   
 
-    <div id='Tuesday' class="card">
-      <h2>Tuesday</h2>
-      <div>Group Financial</div>
-      <div>AIB     14:04:22</div>
-      <button class="btn" type="button" data-toggle="modal" data-target="#addClientModal">+ Add Client </button>
+      <form id="new-client-to-day" >
+        <select id='availableClients' type="text"      name="name"     class="form-control" placeholder="Choose client to add" required >
+          <option disabled>Select a Client</option>
+        </select>
+        <button type="submit" form="new-client-to-day">Add client to today</button>
+    </form>
+      
 
-    </div>
+    
 
   
 
@@ -52,14 +62,16 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.20/lodash.min.js"></script>
+    <script src="assets/js/main.js"></script>
 
     <script>
-
-  
-      let day_lookup = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-      console.log(day_lookup[new Date().getDay()])
       
+      let day_client_parent = document.getElementById('dayClientList')
+      insertClientToDayAsHTML(day_client_parent)
+      insertAvailableClientListAsHTML(document.getElementById("availableClients"))
+      addClientEventListener() 
+    
     </script>
 
 
