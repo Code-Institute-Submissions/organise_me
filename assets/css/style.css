@@ -5,9 +5,9 @@
 
 body {
     /* link for local */
-    /* background-image: url("/assets/images/background.jpg"); */
+    /* background-image: url("/assets/images/background3.jpg"); */
     /* link for deployment */
-    background-image: url(/organise_me/assets/images/background.jpg);
+    background-image: url(/organise_me/assets/images/background3.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     font-family: 'Nunito', sans-serif;
