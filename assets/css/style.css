@@ -142,6 +142,42 @@ hr {
 }
 
 
+/* TUTORIAL PAGE */
+
+.tutorial {
+    background-color: rgba(255, 255, 255, 0.7);
+    width: max(200px, 80%);
+    padding-bottom: 30px;
+    padding-top: 30px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    font-family: 'Nunito', sans-serif;
+    font-size: max(1.5vw, 20px);
+
+}
+
+
+.tutorialHeader {
+    padding-bottom: 30px;
+    padding-top: 30px;
+    font-family: 'Nunito', sans-serif;
+    font-size: max(1.5vw, 20px);
+}
+
+.tutorialBody {
+    padding-bottom: 30px;
+    padding-top: 30px;
+
+    font-family: 'Nunito', sans-serif;
+    font-size: max(1.5vw, 20px);
+}
+
+.tutorialFooter {
+    font-family: 'Nunito', sans-serif;
+    font-size: max(1.5vw, 20px);
+}
+
+
 /* FOOTERS */
 .footer {
     padding: 0;

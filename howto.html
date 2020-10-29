@@ -19,42 +19,19 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div class="navbar-nav ml-auto">
-            <a class="nav-item nav-link active" href="index.html">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link " href="index.html">Home <span class="sr-only">(current)</span></a>
             <a class="nav-item nav-link" href="clients.html">Clients</a>
-            <a class="nav-item nav-link" href="howto.html">How to use</a>
+            <a class="nav-item nav-link active" href="howto.html">How to use</a>
             <!-- <a class="nav-item nav-link" href="testing2.html">Testing</a> -->
           </div>
         </div>
       </nav>
 
-      <form id="new-client-to-day" >
-        <div class="d-flex flex-row justify-content-center">
-          <div>
-            <select id='availableClients' type="text"      name="name"     class="form-control" placeholder="Choose client to add" required >
-              <option disabled>Select a Client</option>
-            </select>
-          </div>
-          <div  class="addClientBtnDiv ">
-            <button id="availableClientsSubmit" class="btn addClientBtn"  type="submit" form="new-client-to-day">Add client to today</button>
-          </div>
-        </div >
-        <div class="d-flex flex-row justify-content-center addNewClientBtnDiv">
-          <button class="btn addClientBtn" type="button" data-toggle="modal" data-target="#addClientModal">+ Add New Client </button>
-        </div>
-
-      </form>
-
-      <div id="dayClientList" class="d-flex flex-row flex-wrap justify-content-center container">
-        <!-- <div>You don't have any clients time tracked at the moment, please choose a client from the dropdown list
-          below to add a new client to today</div> -->
+      <div  class="d-flex flex-row flex-wrap justify-content-center container tutorial">
+        <div class="tutorialHeader">Use this site to track the amount of time you spend working on a client!</div>
+        <div class="tutorialBody">Create a new client by clicking on the + Add New Client button on either the Home page or the Clients page</div>
+        <div class="tutorialFooter">Enjoy tracking your time!</div>
  
-          <div id="Monday"    class="col-md-3 col-sm-4 day"></div>
-          <div id="Tuesday"   class="col-md-3 col-sm-4 day"></div>
-          <div id="Wednesday" class="col-md-3 col-sm-4 day"></div>
-          <div id="Thursday"  class="col-md-3 col-sm-4 day"></div>
-          <div id="Friday"    class="col-md-2 col-sm-4 day"></div>
-          <div id="Saturday"  class="col-md-2 col-sm-4 day"></div>
-          <div id="Sunday"    class="col-md-2 col-sm-4 day"></div>
      </div>
 
      <footer class="footer container-fluid mt-5">
