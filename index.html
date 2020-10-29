@@ -69,7 +69,7 @@
           <div class="modal-body">
   
               <!-- form for including new client information  -->
-              <form id="new-client" >
+              <form id="new-client-index" >
                   <input type="text"      name="name"     class="form-control" placeholder="Enter client Name" required >
                   <input type="number"    name="ratingph" class="form-control" placeholder="Billing Rate" required>
                   <select class="form-control" name="colour" required>
@@ -85,7 +85,7 @@
   
           </div>
           <div class="modal-footer">
-              <button type="submit" form="new-client">Submit</button>
+              <button type="submit" form="new-client-index">Submit</button>
           </div>
       </div>
       </div>
@@ -104,16 +104,13 @@
     <script src="assets/js/main.js"></script>
 
     <script>
-      
-      let day_client_parent = document.getElementById('dayClientList')
-      insertClientToDayAsHTML(day_client_parent)
+
+      insertClientToDayAsHTML(document.getElementById('dayClientList'))
       insertAvailableClientListAsHTML(document.getElementById("availableClients"))
       addClientEventListener() 
-      addNewClientEventListener()
+      addNewClientEventListenerIndex()
     
     </script>
-
-
 
 </body>
 </html>

@@ -54,6 +54,27 @@ function addNewClientEventListener() {
     })
 }
 
+function addNewClientEventListenerIndex() {
+
+    let form = document.getElementById('new-client-index');
+            
+    //creating event listener for submitting the new client form (new-client)
+    form.addEventListener('submit', (event) => {
+        event.preventDefault()
+        let data = new FormData(form)
+        let newClient = {  "name": data.get('name'),
+                            "ratingph": data.get('ratingph'),
+                            "colour": data.get('colour'),
+                            "group": data.get('group').toLowerCase()
+                        }
+    
+        addNewClient(newClient)         
+
+        form.reset()
+        
+    })
+}
+
 
 //3. adding client Divs to HTML page
 function insertClientListAsHTML(parentElement) {
