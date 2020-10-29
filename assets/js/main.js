@@ -70,8 +70,8 @@ function insertClientListAsHTML(parentElement) {
         let element = document.createElement('template')
         let html = `<div class="container-fluid">
                         
-                                <h2 class="text-capitalize">${group}</h2>
-                                <div class="d-flex flex-row flex-wrap">
+                                <h2 class="clientGroup">${group}</h2>
+                                <div class="clientsDiv d-flex flex-row flex-wrap">
                                 `
         Array.from(groups[group]).forEach(client => {
 
