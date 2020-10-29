@@ -5,7 +5,7 @@
 
 body {
     /* link for local */
-    /* background-image: url("/assets/images/ryan-stone-U3cctUBucn0-unsplash.jpg"); */
+    /* background-image: url("/assets/images/background.jpg"); */
     /* link for deployment */
     background-image: url(/organise_me/assets/images/background.jpg);
     background-size: cover;
@@ -76,18 +76,13 @@ hr {
     margin: auto;
     margin-top: 20px;
     width: 260px;      
-
  }
-
-
 
 /* CLIENTS PAGE */
 .client_card {
     background-color: rgba(1, 1, 1, 0.5);
     border-radius: 10px;
-    text-align: center;    
-    
-    
+    text-align: center;        
 }
 
 .client_name{
@@ -154,7 +149,6 @@ hr {
 }
 
 /* TUTORIAL PAGE */
-
 .tutorial {
     background-color: rgba(255, 255, 255, 0.7);
     width: max(200px, 80%);
@@ -167,24 +161,29 @@ hr {
 
 }
 
-.tutorialHeader {
-    padding-bottom: 30px;
-    padding-top: 30px;
-    font-family: 'Nunito', sans-serif;
+.tutorialHeader > p {
+    
+    font-family: 'Raleway', sans-serif;
     font-size: max(1.5vw, 20px);
+    color:rgb(128, 1, 128);
+    text-align: center;
 }
 
 .tutorialBody {
-    padding-bottom: 30px;
-    padding-top: 30px;
-
-    font-family: 'Nunito', sans-serif;
-    font-size: max(1.5vw, 20px);
+    padding-right: min(120px, 0.5vw);
+    padding-left: min(120px, 0.5vw);
 }
 
 .tutorialFooter {
     font-family: 'Nunito', sans-serif;
     font-size: max(1.5vw, 20px);
+}
+
+ .tutorialList > li {
+    list-style: '--> ';
+    font-family: 'Nunito', sans-serif;
+    font-size: max(1.3vw, 15px);
+    margin-bottom: 5px;
 }
 
 

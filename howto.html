@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap CSS link -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <!-- <link rel="stylesheet" href="assets/css/style.css"> -->
-    <link rel="stylesheet" href="/organise_me/assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- <link rel="stylesheet" href="/organise_me/assets/css/style.css"> -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;1,400&family=Raleway:wght@300;400&family=Staatliches&display=swap" rel="stylesheet">
-    <title>Times</title>
+    <title>How to</title>
 </head>
 
 <body>
@@ -29,14 +29,43 @@
       </nav>
 
       <div  class="d-flex flex-row flex-wrap justify-content-center container tutorial">
-        <div class="tutorialHeader">Use this site to track the amount of time you spend working on a client!</div>
-        <div class="tutorialBody">Create a new client by clicking on the + Add New Client button on either the Home page or the Clients page</div>
-        <div class="tutorialFooter">Enjoy tracking your time!</div>
+        <div class="tutorialHeader">
+            <p>Use this site to track the amount of time you spend working on a client!</p>
+            <p>Follow the instructions below to get going</p>
+
+        </div>
+        <div class="tutorialBody">
+            <ul class="tutorialList">
+                <li>Create a new client by clicking on the + Add New Client button on either the Home page or the Clients page.
+                </li>
+                <li>Once you have at least one client, you will be able to add that client to today's time card on the Home page.
+                </li>
+                <li>Choose the client you want to add from the dropdown and click the 
+                    "Add client to today" button. This will 
+                    add the client and a timer to today's time card. 
+                </li>
+                <li>You can add as many clients as you like to today's time card. It is recommended that 
+                    you only add clients when you know you will be working on them, to help save space!
+                </li>
+                <li>Once you have at least one clien added to today's time card, you can click on that client and  
+                    the timer will start. You will see the seconds increasing and you're ready to start tracking your time.
+                </li>
+                <li>Click on another client to start the timer for that client, or if you're taking a break/finished for 
+                    the day, click on the current active client and the timer will stop. 
+                </li>
+                <li>Your timesheet data will be saved in this browser (make sure to use the same browser!) and needs to be
+                    cleared every week after you've successfully taken down all the times. If you don't clear the browser's
+                    local storage, you might end up double counting your time.
+                </li>
+            </ul>
+
+        </div>
+        <div class="tutorialFooter">Have fun!</div>
  
      </div>
 
-     <footer class="footer container-fluid mt-5">
-              <div>Keep track of your time with OM!</div>
+     <footer class="footer container-fluid mt-5 fixed-bottom">
+              <div >Keep track of your time with OM!</div>
          
     </footer>
 
@@ -47,14 +76,7 @@
     <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.20/lodash.min.js"></script>
     <script src="assets/js/main.js"></script>
 
-    <script>
-      
-      let day_client_parent = document.getElementById('dayClientList')
-      insertClientToDayAsHTML(day_client_parent)
-      insertAvailableClientListAsHTML(document.getElementById("availableClients"))
-      addClientEventListener() 
-    
-    </script>
+  
 
 
 
