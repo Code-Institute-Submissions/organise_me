@@ -12,7 +12,7 @@ body {
     font-size: 12px;
 }
 
-.container {
+#dayClientList {
     background-color: rgba(1, 1, 1, 0.5);
 }
     
@@ -70,15 +70,89 @@ hr {
     margin: auto;
   }
 
+#availableClients {
+    margin: auto;
+    margin-top: 20px;
+    width: 260px;      
+
+ }
+
+
+
 /* CLIENTS PAGE */
 .client_card {
-    border: grey solid 2px;
+    background-color: rgba(1, 1, 1, 0.5);
+    border-radius: 10px;
+    text-align: center;    
+    
+    
 }
 
 .client_name{
-    font-size: small;
+    font-size: max(1vw, 16px);
+
 }
 
 .client_rating {
-    border: grey solid 2px;
+    font-size: max(0.9vw, 14px);
 }
+
+#clientList {
+    
+    background-color: rgba(255, 255, 255, 0.7);
+    width: max(200px, 80%);
+    padding-bottom: 30px;
+}
+
+.clientGroup {
+
+    text-align: center;
+    font-family: 'Raleway', sans-serif;
+    font-size: max(2vw, 25px);
+    color:rgb(128, 1, 128);
+    font-weight: 600;
+    text-transform: uppercase;
+    padding: 20px;
+}
+
+.clientsDiv {
+    margin: auto;
+}
+
+.addClientBtn {
+    background-color: rgb(255, 255, 255);   
+    margin-bottom: 10px;
+    color: blueviolet;
+}
+.addClientBtnDiv {
+    margin: 0;
+    margin-top: 20px;
+    width: 260px;  
+    text-align: center;   
+    padding: 0;
+}
+
+.addNewClientBtnDiv
+{
+    margin: auto;
+    margin-top: 10px;
+    width: 260px;  
+    text-align: center;   
+    padding: 0;
+}
+
+
+/* FOOTERS */
+.footer {
+    padding: 0;
+    margin: auto;
+    margin-top: -2000px;
+    background-color: white;
+    height: 50px;
+    text-align: center;
+    color: rgb(128, 1, 128);
+    font-family: 'Raleway', sans-serif;
+    font-size: max(1vw, 20px);
+}
+
+
