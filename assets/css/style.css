@@ -4,8 +4,10 @@
 }
 
 body {
+    /* link for local */
     /* background-image: url("/assets/images/ryan-stone-U3cctUBucn0-unsplash.jpg"); */
-    background-image: url("organise_me/assets/images/ryan-stone-U3cctUBucn0-unsplash.jpg");
+    /* link for deployment */
+    background-image: url("/organise_me/assets/images/ryan-stone-U3cctUBucn0-unsplash.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     font-family: 'Nunito', sans-serif;
