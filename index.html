@@ -7,10 +7,8 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;1,400&family=Raleway:wght@300;400&family=Staatliches&display=swap" rel="stylesheet">
-    <title>Home</title>
+    <title>Times</title>
 </head>
-
-
 
 <body>
 
@@ -29,6 +27,22 @@
         </div>
       </nav>
 
+      <form id="new-client-to-day" >
+        <div class="d-flex flex-row justify-content-center">
+          <div>
+            <select id='availableClients' type="text"      name="name"     class="form-control" placeholder="Choose client to add" required >
+              <option disabled>Select a Client</option>
+            </select>
+          </div>
+          <div  class="addClientBtnDiv ">
+            <button id="availableClientsSubmit" class="btn addClientBtn"  type="submit" form="new-client-to-day">Add client to today</button>
+          </div>
+        </div >
+        <div class="d-flex flex-row justify-content-center addNewClientBtnDiv">
+          <button class="btn addClientBtn" type="button" data-toggle="modal" data-target="#addClientModal">+ Add New Client </button>
+        </div>
+
+      </form>
 
       <div id="dayClientList" class="d-flex flex-row flex-wrap justify-content-center container">
         <!-- <div>You don't have any clients time tracked at the moment, please choose a client from the dropdown list
@@ -45,17 +59,11 @@
 
 
 
-      <form id="new-client-to-day" >
-        <select id='availableClients' type="text"      name="name"     class="form-control" placeholder="Choose client to add" required >
-          <option disabled>Select a Client</option>
-        </select>
-        <button type="submit" form="new-client-to-day">Add client to today</button>
-    </form>
-      
+     <footer class="footer container-fluid mt-5">
+              <div>Keep track of your time with OM!</div>
+         
+    </footer>
 
-    
-
-  
 
 
     <!-- Bootstrap JS scripts -->
@@ -73,6 +81,7 @@
       addClientEventListener() 
     
     </script>
+
 
 
 </body>
