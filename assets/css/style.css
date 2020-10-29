@@ -191,9 +191,8 @@ hr {
 .footer {
     padding: 0;
     margin: auto;
-    margin-top: -2000px;
     background-color: white;
-    height: 50px;
+    height: 20px;
     text-align: center;
     color: rgb(128, 1, 128);
     font-family: 'Raleway', sans-serif;
